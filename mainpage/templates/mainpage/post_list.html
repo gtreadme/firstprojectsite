@@ -26,15 +26,13 @@
       economic capabilities? <br/> 
       education, <br/> 
       tax.<br/> 
-    </p>
-
-      <script type='text/javascript' src='http://d3js.org/d3.v3.js'></script>
-      <script type='text/javascript' src='http://d3js.org/topojson.v1.js'></script>
-      <script type='text/javascript' src='/mainpage/planetaryjs.js'></script>
-      
-    
+    </p>         
+        <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+        <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
+        <script type='text/javascript' src='path/to/planetaryjs.min.js'></script>
+          
        <canvas id='basicGlobe' width='400' height='400'
-  style= "color:blue"></canvas>
+        style= "color:blue"></canvas>
        <body>
           <script>(function() {
           var canvas = document.getElementById('basicGlobe');
@@ -42,7 +40,7 @@
           // Loading this plugin technically happens automatically,
           // but we need to specify the path to the `world-110m.json` file.
           planet.loadPlugin(planetaryjs.plugins.earth({
-            topojson: { file: 'mainpage/world-110m.json' }
+            topojson: { file: '/world-110m.json' }
           }));
           // Scale the planet's radius to half the canvas' size
           // and move it to the center of the canvas.
