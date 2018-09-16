@@ -16,17 +16,17 @@
    		<p> This should be uploading to website</p>
    		
    	</div>
-    <p>Hi there!</p>
-    <p>It works!</p>
-    <h3> <a href="">Click on a country to find out more!</a></h3>
-    <p>Countries display general information and an options bar with scroll, this has more in depth statistics about a country</p>
-    <p>Categories have two applications (general & detailed) General would have:<br/> 
-      population <br/> 
-      size, <br/> 
-      economic capabilities? <br/> 
-      education, <br/> 
-      tax.<br/> 
-    </p>         
+    <div>
+      {% for post in posts %}
+      <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+      {% endfor %}
+    
+    </div>
+
         <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
         <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
         <script type='text/javascript' src='mainpage/planetaryjs.js'></script>
@@ -49,6 +49,10 @@
             .translate([canvas.width / 2, canvas.height / 2]);
           planet.draw(canvas);
              </script>
+
+             {% load static %}
+             <img src="{% static "mainpage/earth.jpg" %}" alt="My image">
+
             <p>Detailed category:</p>  
    </body>
  </body>
