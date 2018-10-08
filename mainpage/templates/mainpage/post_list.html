@@ -1,59 +1,31 @@
-<!post list>
+{% load static %}
 <html>
-   <head>
- 	  <title>My Mainpage</title>
-   </head>
-   <body>
-   	<div>
-   		<h1><a href="/">My blog page</a></h1>
-   	</div>
+    <head>
+        <title>Mainpage</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Mainpage</a></h1>
+        </div>
 
-   	<div>
-   		<p>published: 08:05:2018, 6:47pm</p>
-   		<h2><a href="">My first post</a></h2>
-   		<p>First post is about how we need to be taught how to challenge our beliefs instead of looking to confirm them</p>
-
-   		<p> This should be uploading to website</p>
-   		
-   	</div>
-    <div>
-      {% for post in posts %}
-      <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+   <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-      {% endfor %}
-    
-    </div>
-
-        <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
-        <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
-        <script type='text/javascript' src='mainpage/planetaryjs.js'></script>
-          
-       <canvas id='basicGlobe' width='400' height='400'
-        style= "color:blue"></canvas>
-       <body>
-          <script>(function() {
-          var canvas = document.getElementById('basicGlobe');
-          var planet = planetaryjs.planet();
-          // Loading this plugin technically happens automatically,
-          // but we need to specify the path to the `world-110m.json` file.
-          planet.loadPlugin(planetaryjs.plugins.earth({
-            topojson: { file: 'mainpage/world-110m.json' }
-          }));
-          // Scale the planet's radius to half the canvas' size
-          // and move it to the center of the canvas.
-          planet.projection
-            .scale(canvas.width / 2)
-            .translate([canvas.width / 2, canvas.height / 2]);
-          planet.draw(canvas);
-             </script>
-
-             {% load static %}
-             <img src="{% static "mainpage/earth.jpg" %}" alt="My image">
-
-            <p>Detailed category:</p>  
-   </body>
- </body>
+</div>
+    </body>
 </html>
