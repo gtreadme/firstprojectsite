@@ -9,3 +9,11 @@ def post_list(request):
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
 	return render(request, 'mainpage/post_detail.html', {'post': post})
+def about(request):
+	return render(request, 'mainpage/about.html', {})
+def past_projects(request):
+	return render(request, 'mainpage/past_projects.html', {})
+def smart_home(request):
+	return render(request, 'mainpage/smart_home.html', {})
+def contact(request):
+	return render(request, 'mainpage/contact.html', {})
